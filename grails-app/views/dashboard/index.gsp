@@ -5,7 +5,7 @@
 </head>
 <body>
 
-<h1>Bismillah Grails Online Contacts Book View</h1>
+<h1>Welcome to Grails Sign up Project</h1>
 
 </body>
 </html>
