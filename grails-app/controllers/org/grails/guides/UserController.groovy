@@ -6,7 +6,7 @@ class UserController {
 
     def index() {
         def response = userService.list(params)
-        [userList: response.list, total:response.count]
+        [userList: response.list, total: response.count]
     }
 
     def details(Integer id) {

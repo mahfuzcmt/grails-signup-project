@@ -10,20 +10,15 @@
     <asset:stylesheet src="application.css"/>
     <asset:javascript src="application.js"/>
 </head>
-
 <body>
-
-
 <div class="container-fluid">
+    Total Users: ${total}
     <div class="row">
-
         <nav class="col-sm-3 col-md-2 d-none d-sm-block bg-light sidebar">
             <ul class="list-group">
                 <UIHelper:leftNavigation/>
             </ul>
         </nav>
-
-
         <main role="main" class="col-sm-9 ml-sm-auto col-md-10 pt-3">
             <table class="table">
                 <thead>
@@ -34,13 +29,14 @@
                 </tr>
                 </thead>
                 <tbody>
-                <g:each in="${users}" var="user">
+                <g:each in="${userList}" var="user">
                     <tr>
                         <td>${user.firstName}</td>
                         <td>${user.lastName}</td>
                         <td>${user.email}</td>
                     </tr>
                 </g:each>
+                <g:paginate total="${total}" controller="dashboard" action="index"></g:paginate>
                 </tbody>
             </table>
         </main>

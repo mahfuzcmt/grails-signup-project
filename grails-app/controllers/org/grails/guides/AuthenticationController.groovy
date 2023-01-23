@@ -8,6 +8,7 @@ class AuthenticationController {
     UserService userService
 
     def login() {
+
         if (authenticationService.isAuthenticated()) {
             redirect(uri: "/")
         }

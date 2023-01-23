@@ -35,20 +35,12 @@ class UserService {
         return User.get(id)
     }
 
-
-    def list(GrailsParameterMap params) {
-        params.max = params.max ?: GlobalConfig.itemsPerPage()
-        List<User> userList = User.createCriteria().list(params) {
-            if (params?.colName && params?.colValue) {
-                like(params.colName, "%" + params.colValue + "%")
-            }
-            if (!params.sort) {
-                order("id", "desc")
-            }
-        }
-        return [list: userList, count: userList.totalCount]
+    Map list(GrailsParameterMap params) {
+        params.max = params.max ?: 5
+        params.offset = params.offset ?: 0
+        List<User> userList = User.createCriteria().list(params) { }
+        return [list: userList, count: User.list().size()]
     }
-
 
     def delete(User user) {
         try {
